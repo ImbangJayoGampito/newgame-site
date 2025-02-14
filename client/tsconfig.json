@@ -1,0 +1,36 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+
+    "target": "esnext",
+
+    "module": "esnext",
+
+    "moduleResolution": "node",
+
+    "baseUrl": "./src", // Set baseUrl to the src directory
+
+    "paths": {
+
+      "@models/*": ["../models/*"] // Adjust the path to point to the models directory
+
+    },
+
+    "jsx": "react-jsx", // or "react" depending on your React version
+
+    "strict": true,
+
+    "esModuleInterop": true,
+
+    "skipLibCheck": true
+
+  },
+}

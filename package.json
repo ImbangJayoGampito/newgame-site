@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "scripts": {
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "prod": "concurrently \"cd server && npm run prod\" \"cd client && npm run prod\""
+  }
+}
