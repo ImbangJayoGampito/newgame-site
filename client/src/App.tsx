@@ -15,7 +15,11 @@ function App() {
   }, []);
 
   return (
+
     <div>
+      <div>
+        <h1 className="text-3xl font-bold underline ">    Hello world!  </h1>
+      </div>
       {people.map((person) => (
         <div key={person.name}>
           <h2>{person.name}</h2>

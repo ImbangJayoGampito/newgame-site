@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import dotenv from "dotenv";
 import react from '@vitejs/plugin-react';
 import path from 'path';
-
+import tailwindcss from '@tailwindcss/vite'
 const currentDirectory = process.cwd();
 
 // console.log(`Current directory: ${currentDirectory}`);
@@ -17,7 +17,9 @@ const serverUrl: string = `http://${customAddress}:${port}`;
 console.log(serverUrl);
 export default defineConfig({
 
-  plugins: [react()],
+  plugins: [react(),
+  tailwindcss()
+  ],
   preview: {
     port: 3000,
   },
