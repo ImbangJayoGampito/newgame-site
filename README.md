@@ -2,6 +2,7 @@
 ## Cara Setup Proyek
 Persyaratan
 1. Node JS: https://nodejs.org/en/download
+
 Tahapan, jalankan perintah ini di terminal
 1. npm install
 2. cd client
