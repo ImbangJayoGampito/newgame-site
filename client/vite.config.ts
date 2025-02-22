@@ -12,7 +12,7 @@ const currentDirectory = process.cwd();
 let env_path = path.resolve(currentDirectory, '../server.env');
 dotenv.config({ path: env_path });
 const port: number = Number(process.env.PORT);
-const customAddress: string = String(process.env.IP);
+const customAddress: string = String(process.env.IP) || '127.0.0.1';
 const serverUrl: string = `http://${customAddress}:${port}`;
 console.log(serverUrl);
 export default defineConfig({
@@ -22,6 +22,15 @@ export default defineConfig({
   ],
   preview: {
     port: 3000,
+  },
+  resolve: {
+
+    alias: {
+
+      '@models': path.resolve(currentDirectory, '../server.env'), // Adjust the path to point to the models directory
+
+    },
+
   },
   server: {
     port: 3000,
@@ -33,7 +42,10 @@ export default defineConfig({
         changeOrigin: true,
 
       },
-
+      '/meow': {
+        target: serverUrl,
+        changeOrigin: true
+      }
     },
 
   },
