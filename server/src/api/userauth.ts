@@ -1,5 +1,5 @@
-import { User, UserAuth } from '../../../models/User'
-import { tryFail } from '../../../models/error-handling'
+import { User, UserAuth } from '@models/User'
+import { tryFail } from '@models/error-handling'
 import "ts-error-as-value/lib/globals";
 
 export function UserLogin(username: string, password: string, loginExecute: (result: Result<User, Error>) => void): void {

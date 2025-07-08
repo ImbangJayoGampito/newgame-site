@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "outDir": "./dist",
     "paths": {
       "@models/*": [
         "../models/*"
-      ] // Adjust the path to point to the models directory
-      ,
-      
+      ],
+      "@api/*": [
+        "../server/src/api/*"
+      ]
     },
     /* Visit https://aka.ms/tsconfig to read more about this file */
     /* Projects */
