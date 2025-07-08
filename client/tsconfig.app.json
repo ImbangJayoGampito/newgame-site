@@ -27,6 +27,6 @@
   "include": [
     "src",
     "../models/error-handling.ts",
-    "src/API/userauth.ts"
+    "../server/src/api/userauth.ts"
   ]
 }

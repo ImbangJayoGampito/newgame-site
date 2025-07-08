@@ -26,6 +26,25 @@ dotenv.config({ path: env_path });
 const app: Express = express();
 const port: number = Number(process.env.PORT);
 const customAddress: string = String(process.env.IP) || '127.0.0.1';
+
+
+const { MongoClient } = require('mongodb');
+
+const uri = "mongodb+srv://imbangjayogampito:d7kALD4NMihM677Z@cluster0.5yqbz.mongodb.net/";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function run() {
+    try {
+        await client.connect();
+        console.log("Connected to the database");
+        // Perform database operations here
+    } finally {
+        await client.close();
+    }
+}
+
+run().catch(console.dir);
+
 app.use(cors());
 app.get("/api/people", (req: Request, res: Response) => {
 

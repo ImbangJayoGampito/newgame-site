@@ -24,14 +24,14 @@ export default defineConfig({
     port: 3000,
   },
   resolve: {
-
     alias: {
-
-      '@models': path.resolve(currentDirectory, '../server.env'), // Adjust the path to point to the models directory
-
+      '@models': path.resolve(__dirname, '../models'),
+      '@api': path.resolve(__dirname, '../server/src/api')
     },
 
+
   },
+
   server: {
     port: 3000,
     proxy: {
@@ -47,6 +47,10 @@ export default defineConfig({
         changeOrigin: true
       }
     },
+    fs: {
+      allow: ['..'] // allow access to models/
+    }
+
 
   },
 });

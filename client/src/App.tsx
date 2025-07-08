@@ -1,37 +1,23 @@
-import { useState, useEffect } from 'react'
-import { User } from '../../models/User'
-import { GatherDummyUsers } from './API/userauth'
+
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import { Login } from './components/Login';
+
+
 function App() {
   // const [count, setCount] = useState(0)
-  const [users, setUsers] = useState<User[]>([])
-  const [error, setError] = useState<Error>();
-  useEffect(() => {
-    GatherDummyUsers((res) => {
-      if (res.error) {
-        setError(res.error)
-        console.error(res.error)
-      }
-      else {
-        setUsers(res.data)
 
-      }
-    })
-  }, [])
+
 
   const meowTime = async () => {
     try {
       const response = await fetch("/meow", {
         method: "POST",
         headers: {
-
           'Content-Type': 'application/json',
-
         },
         body: JSON.stringify({ username: "example" }),
-
       });
       console.log(response.body);
 
@@ -46,13 +32,7 @@ function App() {
         <h1 className="text-3xl font-bold underline ">    Hello world!  </h1>
       </div>
       <div>
-        {error ? <p>Error because of : {error.message}</p> :
-          users.map(user => (
-            <li key={user.id}>
-              {user.username} - {user.email || 'No email provided'}
-            </li>
-          ))
-        }
+        <Login />
       </div>
       <button onClick={meowTime}>
         Start meowwwwww meowwwwww

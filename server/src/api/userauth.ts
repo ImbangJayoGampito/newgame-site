@@ -2,8 +2,7 @@ import { User, UserAuth } from '../../../models/User'
 import { tryFail } from '../../../models/error-handling'
 import "ts-error-as-value/lib/globals";
 
-export function Login(username: string, password: string, callback: (result: Result<User, Error>) => void): void {
-
+export function UserLogin(username: string, password: string, loginExecute: (result: Result<User, Error>) => void): void {
     let userCheck: UserAuth = {
         username: username,
         password: password
@@ -18,7 +17,7 @@ export function Login(username: string, password: string, callback: (result: Res
             return err(new Error("Not responding and I don't know why meow"))
         }
         return response.json();
-    }).then((data) => { callback(data) }).catch((err) => { callback(err(new Error("Error while handling promise, reason: " + err))) })
+    }).then((data) => { loginExecute(data) }).catch((err) => { loginExecute(err(new Error("Error while handling promise, reason: " + err))) })
 
 
 }
@@ -37,7 +36,7 @@ export function GatherDummyUsers(callback: (result: Result<User[], Error>) => vo
 
 
 }
-function SignUp(username: string, password: string): Boolean {
+function UserSignup(username: string, password: string): Boolean {
     return false;
 }
 function ValidateUsername(username: string) {
